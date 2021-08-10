@@ -44,7 +44,7 @@ public class TranslatorPtBr extends Translator
         {
             case Ace: return "Ás";
             case King: return "Rei";
-            case Knight: return "Cavaleiro";
+            case Knight: return "Cavalo";
             case Knave: return "Valete";
             default: return rank.name().replaceAll("^V", "");
         }
@@ -71,7 +71,7 @@ public class TranslatorPtBr extends Translator
     @Override
     public String getTuteDeclarationString(Rank rank)
     {
-        return "Tute (" + (rank == Rank.King ? "Reis" : "Cavaleiros") + ")";
+        return "Tute (" + (rank == Rank.King ? "Reis" : "Cavalos") + ")";
     }
 
     @Override
