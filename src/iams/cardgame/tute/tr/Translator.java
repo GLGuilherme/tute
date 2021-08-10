@@ -41,7 +41,7 @@ abstract public class Translator
         if (currentLocale.getLanguage().toLowerCase().equals("es"))
             return new TranslatorEs();
         else
-            return new TranslatorEn();
+            return new TranslatorPtBr();
     }
 
     
