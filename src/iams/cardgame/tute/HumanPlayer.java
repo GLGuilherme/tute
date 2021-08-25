@@ -130,9 +130,6 @@ public class HumanPlayer
             }
             else if (this.game.getPlayer1Cards().contains(this.hoverCard))
             {
-//                if (this.game.calculateIfRenuncio(this.player2playedCard, this.hoverCard, this.game.getPlayer1Cards()))
- //                   this.hoverCard.setHighlightColor(Color.pink);
-   //             else
                     this.hoverCard.setHighlightColor(Color.yellow);
                 
                 return new ThrowResponseMovement(this.hoverCard);
