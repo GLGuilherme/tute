@@ -36,9 +36,7 @@ abstract public class Translator
 
     public static Translator get()
     {
-        Locale currentLocale = Locale.getDefault();
-        
-        if (currentLocale.getLanguage().toLowerCase().equals("es"))
+        if (Locale.getDefault().getLanguage().toLowerCase().equals("es"))
             return new TranslatorEs();
         else
             return new TranslatorPtBr();
