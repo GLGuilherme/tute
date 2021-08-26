@@ -162,10 +162,7 @@ const TuteGame =
     
     calculateIfRenuncio: function(firstCard, secondCard, playerCards)
     {
-        let allowedCards = 
-                TuteGame.calculateAllowedCardsToAvoidRenuncio(firstCard, playerCards);
-        
-        return !allowedCards.includes(secondCard);
+        return !TuteGame.calculateAllowedCardsToAvoidRenuncio(firstCard, playerCards).includes(secondCard);
     },
 	
     declareRenuncio: function(firstCard, secondCard)
