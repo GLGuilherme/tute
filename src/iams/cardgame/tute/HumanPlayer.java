@@ -52,11 +52,9 @@ public class HumanPlayer
     }
     
     private void onMouseOver()
-    {
-        Movement movement = this.getPlayerMovement();
-        
-        if (movement != null)
-            this.player1Message = movement.toString(this.tr);
+    {      
+        if (this.getPlayerMovement() != null)
+            this.player1Message = this.getPlayerMovement().toString(this.tr);
         else
             this.player1Message = null;
     }
