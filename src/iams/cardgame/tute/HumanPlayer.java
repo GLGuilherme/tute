@@ -37,18 +37,21 @@ public class HumanPlayer
             if (this.hoverCard == card)
                 return;
 
-            this.clearSelection();
-
-            this.hoverCard = card;
+            this.clearMouseOverSelection(card);
         }
         else if (this.hoverCard != null)
         {
-            this.clearSelection();
-
-            this.hoverCard = null;
+            this.clearMouseOverSelection(null);
         }
 
         this.onMouseOver();
+    }
+
+    private void clearMouseOverSelection(Card card)
+    {
+        this.clearSelection();
+
+        this.hoverCard = card;
     }
     
     private void onMouseOver()
