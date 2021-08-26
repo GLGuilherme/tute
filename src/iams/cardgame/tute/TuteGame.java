@@ -235,16 +235,16 @@ public class TuteGame
         this.pinta.moveToBack();
 
         if (this.out != null)
-            this.out.println("SHUFFLE PINTA " + this.pinta); //$NON-NLS-1$
+            this.out.println("SHUFFLE PINTA " + this.pinta); 
         
         if (this.out != null)
-            this.out.println("TURN " + (this.player1Turn ? 1 : 2)); //$NON-NLS-1$
+            this.out.println("TURN " + (this.player1Turn ? 1 : 2)); 
     }
 
     private Card changePintaPlayer(Card cardChangeableByPinta, TreeSet<Card> playerCards)
     {
         if (this.out != null)
-            this.out.println("PLAYER " + (playerCards == this.player1Cards ? "1" : "2") + " CHANGES PINTA " + this.pinta + " " + cardChangeableByPinta); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$
+            this.out.println("PLAYER " + (playerCards == this.player1Cards ? "1" : "2") + " CHANGES PINTA " + this.pinta + " " + cardChangeableByPinta); 
         
         if (!playerCards.remove(cardChangeableByPinta))
             throw new AssertionError();
@@ -283,7 +283,7 @@ public class TuteGame
             throw new AssertionError();
         
         if (this.out != null)
-            this.out.println("DISPATCH " + (playerCards == this.player1Cards ? "1" : "2") + " " + c1); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$
+            this.out.println("DISPATCH " + (playerCards == this.player1Cards ? "1" : "2") + " " + c1); 
         
         playerCards.add(c1);
         
@@ -379,7 +379,7 @@ public class TuteGame
     public boolean playCards(Card firstCard, Card secondCard)
     {
         if (this.out != null)
-            this.out.println("THROW " + firstCard + " " + secondCard); //$NON-NLS-1$ //$NON-NLS-2$
+            this.out.println("THROW " + firstCard + " " + secondCard); 
         
         boolean firstCardWins = this.calculateIfFirstCardWins(firstCard, secondCard);
         
@@ -426,7 +426,7 @@ public class TuteGame
         this.player1Turn = player1Wins;
 
         if (this.out != null)
-            this.out.println("TURN " + (this.player1Turn ? 1 : 2)); //$NON-NLS-1$
+            this.out.println("TURN " + (this.player1Turn ? 1 : 2)); 
 
         return player1Wins;
     }
@@ -466,11 +466,11 @@ public class TuteGame
                 this.player2Games ++;
             
             if (this.out != null)
-                this.out.println("POINTS " + player1Points + " " + player2Points); //$NON-NLS-1$ //$NON-NLS-2$
+                this.out.println("POINTS " + player1Points + " " + player2Points); 
         }
             
         if (this.out != null)
-            this.out.println("GAMES " + this.player1Games + " " + this.player2Games); //$NON-NLS-1$ //$NON-NLS-2$
+            this.out.println("GAMES " + this.player1Games + " " + this.player2Games); 
         
         this.skipCardCount = false;
         
@@ -512,7 +512,7 @@ public class TuteGame
             else
                 this.player2Games += 2;
         }
-        else // if (!player1Turn)
+        else 
         {
             if (renuncio)
                 this.player2Games += 2;
