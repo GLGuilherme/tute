@@ -369,11 +369,8 @@ public class TuteGame
     }
     
     public boolean calculateIfRenuncio(Card firstCard, Card secondCard, Collection<Card> playerCards)
-    {
-        TreeSet<Card> allowedCards = 
-                this.calculateAllowedCardsToAvoidRenuncio(firstCard, playerCards);
-        
-        return !allowedCards.contains(secondCard);
+    {   
+        return !this.calculateAllowedCardsToAvoidRenuncio(firstCard, playerCards).contains(secondCard);
     }
     
     public boolean playCards(Card firstCard, Card secondCard)
