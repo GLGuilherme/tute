@@ -4,6 +4,15 @@ import iams.cardgame.tute.CardModel;
 import iams.cardgame.tute.CardModel.Rank;
 import iams.cardgame.tute.CardModel.Suit;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
 public class TranslatorPtBr extends Translator
 {
     @Override
@@ -117,5 +126,10 @@ public class TranslatorPtBr extends Translator
             case "SPANISH": return "Espanhol";
             default: throw new AssertionError();
         }
+    }
+
+    @Override
+    public String getRulesText() throws IOException {
+        return Files.readString(Path.of("./Regras.txt"), StandardCharsets.US_ASCII);
     }
 }

@@ -1,6 +1,6 @@
 package iams.cardgame.tute.tr;
 
-import java.util.Locale;
+import java.io.IOException;
 
 import iams.cardgame.tute.CardModel;
 import iams.cardgame.tute.CardModel.Rank;
@@ -36,14 +36,17 @@ abstract public class Translator
 
     abstract public String getMenuItemNames(String key);
 
-    public static Translator get()
-    {
-        Locale currentLocale = Locale.getDefault();
+    abstract public String getRulesText() throws IOException;
 
-        if (currentLocale.getLanguage().toLowerCase().equals("es"))
-            return new TranslatorEs();
-        else
-            return new TranslatorPtBr();
+    public static Translator get(String defaultLanguage)
+    {
+        switch (defaultLanguage)
+        {
+            case "PT": return new TranslatorPtBr();
+            case "EN": return new TranslatorEn();
+            case "SP":  return new TranslatorEs();
+            default: throw new AssertionError();
+        }
     }
 
     

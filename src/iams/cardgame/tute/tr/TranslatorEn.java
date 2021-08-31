@@ -4,6 +4,11 @@ import iams.cardgame.tute.CardModel;
 import iams.cardgame.tute.CardModel.Rank;
 import iams.cardgame.tute.CardModel.Suit;
 
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
+
 public class TranslatorEn extends Translator
 {
     @Override
@@ -117,5 +122,10 @@ public class TranslatorEn extends Translator
             case "SPANISH": return "Spanish";
             default: throw new AssertionError();
         }
+    }
+
+    @Override
+    public String getRulesText() throws IOException {
+        return Files.readString(Path.of("./Rules.txt"), StandardCharsets.US_ASCII);
     }
 }

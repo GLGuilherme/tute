@@ -1,0 +1,41 @@
+Sobre Tute
+Tute es un juego de cartas para 2 a 4 jugadores y es uno de los más populares entre la baraja española. Es de origen italiano y proviene de la palabra italiana tutti.
+
+
+Como jugar Tute
+Al comienzo del juego, la mano del jugador se decide mediante un sorteo automático, es decir, el jugador que comienza a jugar. Se repartirán 8 cartas a cada jugador. Después del reparto, la última carta es la que marcará el triunfo o el flip. Las 24 cartas restantes se dejarán en la mesa para ser robadas.
+
+
+Desarrollo de juegos
+El jugador que es la mano comienza descartando cualquiera de sus cartas. El oponente debe jugar una de sus cartas dependiendo de la primera. El grupo de cartas que juegan ambos se llama truco. El siguiente jugador debe descartar siguiendo las siguientes reglas:
+
+1. Una carta del mismo palo más alta que la carta sobre la mesa.
+2. Una carta del mismo palo.
+3. Una carta en el palo de triunfo más alta que la carta en la mesa.
+4. Cualquier otra tarjeta.
+
+El jugador que coloca el triunfo más alto gana la baza o, si no hay triunfos, la carta del palo inicial con la clasificación más alta (la primera descartada) gana la baza. Este jugador hace el truco, esto significa que recoge las cartas descartadas por ambos jugadores en esa mano y las guarda hasta el final de la ronda. El jugador que gane el truco empezará a jugar en la siguiente mano.
+
+Cuando el triunfo es un as, un tres, un rey, un caballo o una jota, el jugador que tiene el 7 del mismo palo puede cambiarlo por el flip. Esta operación también se puede hacer, de la misma forma, para cambiar el 7, 6, 5 o 4 del turno por el 2, y no se puede realizar hasta que se gane una baza.
+
+
+Valor de las cartas
+El valor de las cartas está en el siguiente orden descendente:
+Ace: 11 puntos
+Tres: 10 puntos
+Rey: 4 puntos
+Caballo: 3 puntos
+Jack: 2 puntos
+Siete, seis, cinco, cuatro, dos: 0 puntos
+
+En cada ronda hay 120 puntos (30 por palo). Debes sumar los 10 puntos del último truco, lo que da como resultado un total de 130 puntos por juego. El resto de puntos dependerá de si algún jugador canta o no. Pueden llegar a 100, que es el máximo. Puedes cantar 3 veces por 20 puntos y una vez por 40 puntos.
+
+
+Fin del juego
+El jugador que gana todas las rondas gana el partido.
+
+
+Cantar
+Una llamada es cuando un jugador dice lo que está en sus manos el caballo y el rey del mismo palo. Valen 40 puntos cuando están en el mismo palo que el triunfo (cantar a los 40) y 20 puntos cuando están en diferentes palos como el triunfo (cantar a 20 en diamantes, espadas, tréboles y corazones), y es obligatorio cantar a los 40 en primer lugar.
+
+El jugador puede cantar “Tute” si tiene los 4 reyes y los 4 caballos y ganará el juego inmediatamente. También es posible cantar una sola vez por cada truco ganado, y no puedes cantar si cantas primero. Solo puede cantar mientras haya una pila y mientras ni el caballo ni el rey sean la última carta que saque.

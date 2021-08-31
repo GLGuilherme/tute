@@ -1,13 +1,8 @@
 
 package iams.cardgame.tute;
 
-import java.awt.Color;
-import java.awt.Font;
-import java.awt.FontMetrics;
-import java.awt.Graphics2D;
-import java.awt.RenderingHints;
-import java.awt.event.ComponentAdapter;
-import java.awt.event.ComponentEvent;
+import java.awt.*;
+import java.awt.event.*;
 import java.awt.geom.AffineTransform;
 import java.awt.geom.Rectangle2D;
 import java.awt.image.BufferedImage;
@@ -15,7 +10,10 @@ import java.io.IOException;
 import java.util.Arrays;
 
 import javax.imageio.ImageIO;
+import javax.swing.*;
 import javax.swing.JFrame;
+import static javax.swing.ScrollPaneConstants.*;
+
 
 import iams.cardgame.tute.tr.Translator;
 import iams.ui.GraphicsPanel;
@@ -23,7 +21,9 @@ import iams.ui.GraphicsPanel;
 @SuppressWarnings("serial")
 public class Main extends GraphicsPanel
 {
-    final public Translator tr = Translator.get();
+    Languages lg = new Languages();
+
+    final public Translator tr = Translator.get(lg.getDefaultLanguage());
     
     private static final Font FONT = new Font("Times New Roman", Font.BOLD, 28); //$NON-NLS-1$
     
@@ -131,10 +131,20 @@ public class Main extends GraphicsPanel
         for (Card card : cardRasters)
             card.draw(g2, tx2, this);
     }
+
+    static public void restartGame(JFrame frame) {
+        frame.dispose();
+        try {
+            main(null);
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
     
     static public void main(String[] args) throws IOException
     {
-        final Translator tr = Translator.get();
+        Languages lg = new Languages();
+        final Translator tr = Translator.get(lg.getDefaultLanguage());
         
         BufferedImage appIcon = ImageIO.read(
                 CardModel.class.getResourceAsStream("/iams/cardgame/icon.png"));
@@ -142,9 +152,90 @@ public class Main extends GraphicsPanel
         JFrame frame = new JFrame(tr.getWindowTitle());
         frame.setIconImage(appIcon);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(800, 700);
+        frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
         frame.add(new Main());
         frame.setLocationByPlatform(true);
         frame.setVisible(true);
+        JMenuBar menuBar = new JMenuBar();
+
+        JMenu options = new JMenu(tr.getMenuItemNames("OPTIONS"));
+        JMenuItem restart = new JMenuItem(tr.getMenuItemNames("RESTART"));
+        JMenuItem exit = new JMenuItem(tr.getMenuItemNames("QUIT"));
+
+        JMenu game = new JMenu(tr.getMenuItemNames("GAME"));
+        JMenuItem rules = new JMenuItem(tr.getMenuItemNames("RULES"));
+        JMenu languages = new JMenu(tr.getMenuItemNames("LANGUAGES"));
+        JMenuItem english = new JMenuItem(tr.getMenuItemNames("ENGLISH"));
+        JMenuItem portuguese = new JMenuItem(tr.getMenuItemNames("PORTUGUESE"));
+        JMenuItem spanish = new JMenuItem(tr.getMenuItemNames("SPANISH"));
+
+        menuBar.add(game);
+        menuBar.add(options);
+
+        options.add(restart);
+        options.add(exit);
+
+        game.add(rules);
+        game.add(languages);
+        languages.add(english);
+        languages.add(portuguese);
+        languages.add(spanish);
+
+        rules.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e){
+                JFrame rulesFrame = new JFrame(tr.getWindowTitle());
+                rulesFrame.setIconImage(appIcon);
+                rulesFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                rulesFrame.setExtendedState(JFrame.MAXIMIZED_BOTH);
+
+                JTextArea textArea = new JTextArea(40, 100);
+                try {
+                    textArea.setText(tr.getRulesText());
+
+                } catch (IOException ex) {
+                    ex.printStackTrace();
+                }
+                textArea.setEditable(false);
+                JScrollPane scrollPane = new JScrollPane(textArea);
+                scrollPane.setHorizontalScrollBarPolicy(HORIZONTAL_SCROLLBAR_NEVER);
+                textArea.setLineWrap(true);
+                JOptionPane.showMessageDialog(rulesFrame, scrollPane, tr.getMenuItemNames("RULES"), JOptionPane.INFORMATION_MESSAGE);
+            }
+        });
+
+        restart.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e){
+             restartGame(frame);
+            }
+        });
+
+        exit.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e){
+                frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
+            }
+        });
+
+        english.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e){
+                lg.setDefaultLanguage("EN");
+                restartGame(frame);
+            }
+        });
+
+        portuguese.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e){
+                lg.setDefaultLanguage("PT");
+                restartGame(frame);
+            }
+        });
+
+        spanish.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e){
+                lg.setDefaultLanguage("SP");
+                restartGame(frame);
+            }
+        });
+
+        frame.setJMenuBar(menuBar);
     }
 }
