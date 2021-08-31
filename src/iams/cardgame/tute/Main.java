@@ -146,7 +146,11 @@ public class Main extends GraphicsPanel
         final Languages lg = new Languages();
         final Translator tr = Translator.get(lg.getDefaultLanguage());
 
-        ImageIcon appIcon = new ImageIcon("iconhq.png");
+        Path path = Paths.get("iconhq.png");
+
+        Path pathIcon = path.toRealPath();
+
+        ImageIcon appIcon = new ImageIcon(pathIcon.toString());
 
         Taskbar.getTaskbar().setIconImage(appIcon.getImage());
 
