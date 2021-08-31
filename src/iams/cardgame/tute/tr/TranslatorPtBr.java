@@ -130,6 +130,8 @@ public class TranslatorPtBr extends Translator
 
     @Override
     public String getRulesText() throws IOException {
-        return Files.readString(Path.of("./Regras.txt"), StandardCharsets.US_ASCII);
+        Path fileName = Paths.get("iams/cardgame/tute/tr/Regras.txt");
+
+        return Files.readString(fileName.toAbsolutePath(), StandardCharsets.UTF_8);
     }
 }

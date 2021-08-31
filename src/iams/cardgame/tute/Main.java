@@ -6,7 +6,9 @@ import java.awt.event.*;
 import java.awt.geom.AffineTransform;
 import java.awt.geom.Rectangle2D;
 import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
+import java.net.URL;
 import java.util.Arrays;
 
 import javax.imageio.ImageIO;
@@ -140,22 +142,22 @@ public class Main extends GraphicsPanel
             ex.printStackTrace();
         }
     }
-    
+
     static public void main(String[] args) throws IOException
     {
         Languages lg = new Languages();
         final Translator tr = Translator.get(lg.getDefaultLanguage());
-        
-        BufferedImage appIcon = ImageIO.read(
-                CardModel.class.getResourceAsStream("/iams/cardgame/icon.png"));
-        
+
+        ImageIcon appIcon = new ImageIcon("iams/cardgame/iconhq.png");
+
+        Taskbar.getTaskbar().setIconImage(appIcon.getImage());
+
         JFrame frame = new JFrame(tr.getWindowTitle());
-        frame.setIconImage(appIcon);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
         frame.add(new Main());
-        frame.setLocationByPlatform(true);
         frame.setVisible(true);
+
         JMenuBar menuBar = new JMenuBar();
 
         JMenu options = new JMenu(tr.getMenuItemNames("OPTIONS"));
@@ -184,7 +186,6 @@ public class Main extends GraphicsPanel
         rules.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
                 JFrame rulesFrame = new JFrame(tr.getWindowTitle());
-                rulesFrame.setIconImage(appIcon);
                 rulesFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 rulesFrame.setExtendedState(JFrame.MAXIMIZED_BOTH);
 
@@ -199,7 +200,7 @@ public class Main extends GraphicsPanel
                 JScrollPane scrollPane = new JScrollPane(textArea);
                 scrollPane.setHorizontalScrollBarPolicy(HORIZONTAL_SCROLLBAR_NEVER);
                 textArea.setLineWrap(true);
-                JOptionPane.showMessageDialog(rulesFrame, scrollPane, tr.getMenuItemNames("RULES"), JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(rulesFrame, scrollPane, tr.getMenuItemNames("RULES"), JOptionPane.INFORMATION_MESSAGE, appIcon);
             }
         });
 

@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 
 public class TranslatorEs extends Translator
 {
@@ -134,6 +135,8 @@ public class TranslatorEs extends Translator
 
     @Override
     public String getRulesText() throws IOException {
-        return Files.readString(Path.of("./Normas.txt"), StandardCharsets.US_ASCII);
+        Path fileName = Paths.get("iams/cardgame/tute/tr/Normas.txt");
+
+        return Files.readString(fileName.toAbsolutePath(), StandardCharsets.UTF_8);
     }
 }
