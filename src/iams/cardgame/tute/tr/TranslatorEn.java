@@ -100,4 +100,22 @@ public class TranslatorEn extends Translator
     {
         return "Renuncio";
     }
+
+    @Override
+    public String getMenuItemNames(String key)
+    {
+        switch (key)
+        {
+            case "OPTIONS": return "Options";
+            case "RESTART": return "Restart";
+            case "QUIT": return "Quit game";
+            case "GAME": return "Game";
+            case "RULES": return "Rules";
+            case "LANGUAGES": return "Languages";
+            case "PORTUGUESE": return "Portuguese (BR)";
+            case "ENGLISH": return "English";
+            case "SPANISH": return "Spanish";
+            default: throw new AssertionError();
+        }
+    }
 }
