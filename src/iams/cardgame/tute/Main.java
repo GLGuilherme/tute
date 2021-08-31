@@ -5,7 +5,10 @@ import java.awt.*;
 import java.awt.event.*;
 import java.awt.geom.AffineTransform;
 import java.awt.geom.Rectangle2D;
+import java.io.File;
 import java.io.IOException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Arrays;
 
 import javax.swing.*;
@@ -143,7 +146,9 @@ public class Main extends GraphicsPanel
         final Languages lg = new Languages();
         final Translator tr = Translator.get(lg.getDefaultLanguage());
 
-        ImageIcon appIcon = new ImageIcon("/Users/gabriel/GitHub/tute/src/iams/cardgame/iconhq.png");
+        ImageIcon appIcon = new ImageIcon("iconhq.png");
+
+        Taskbar.getTaskbar().setIconImage(appIcon.getImage());
 
         JFrame frame = new JFrame(tr.getWindowTitle());
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

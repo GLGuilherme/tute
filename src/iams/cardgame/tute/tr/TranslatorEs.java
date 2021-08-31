@@ -134,7 +134,7 @@ public class TranslatorEs extends Translator
 
     @Override
     public String getRulesText() throws IOException {
-        Path fileName = Paths.get("/Users/gabriel/GitHub/tute/src/iams/cardgame/tute/tr/Normas.txt");
+        Path fileName = Paths.get("Normas.txt");
 
         return Files.readString(fileName);
     }
