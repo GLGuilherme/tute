@@ -34,10 +34,12 @@ abstract public class Translator
 
     abstract public String getDeclareRenuncioString();
 
+    abstract public String getMenuItemNames(String key);
+
     public static Translator get()
     {
         Locale currentLocale = Locale.getDefault();
-        
+
         if (currentLocale.getLanguage().toLowerCase().equals("es"))
             return new TranslatorEs();
         else

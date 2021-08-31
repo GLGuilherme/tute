@@ -100,4 +100,22 @@ public class TranslatorPtBr extends Translator
     {
         return "Renúncio";
     }
+
+    @Override
+    public String getMenuItemNames(String key)
+    {
+        switch (key)
+        {
+            case "OPTIONS": return "Opções";
+            case "RESTART": return "Reiniciar";
+            case "QUIT": return "Sair do jogo";
+            case "GAME": return "Jogo";
+            case "RULES": return "Regras";
+            case "LANGUAGES": return "Idioma";
+            case "PORTUGUESE": return "Português (PT-BR)";
+            case "ENGLISH": return "Inglês";
+            case "SPANISH": return "Espanhol";
+            default: throw new AssertionError();
+        }
+    }
 }
