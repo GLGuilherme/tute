@@ -1,0 +1,41 @@
+About Tute
+Tute is a card game for 2 to 4 players and is one of the most popular with the Spanish deck. It is of Italian origin and comes from the Italian word tutti.
+
+
+How to play Tute
+At the beginning of the game, the player's hand is decided by automatic drawing, that is, the player who starts playing. 8 cards will be dealt to each player. After the deal, the last card is the one that will score the trump or flip. The remaining 24 cards will be left on the table to be drawn.
+
+
+Game development
+The player who is the hand starts by discarding any of his cards. The opponent must play one of his cards depending on the first one. The group of cards played by both is called a trick. The following player is required to discard following the following rules:
+
+1. A card of the same suit higher than the card on the table.
+2. One card of the same suit.
+3. One card in the trump suit higher than the card on the table.
+4. Any other card.
+
+The player who places the highest ranked trump wins the trick or, if there are no trumps, the highest ranked starting suit card (the first one discarded) wins the trick. This player takes the trick, this means that he collects the cards discarded by both players in that hand, and keeps them until the end of the round. The player who wins the trick will start playing in the next hand.
+
+When the trump is an ace, a three, a king, a knight or a jack, the player holding the 7 of the same suit can exchange it for the flip. This operation can also be done, in the same way, to change the 7, 6, 5 or 4 of the turn for the 2, and cannot be done until a trick is won.
+
+
+Value of cards
+The value of the cards is in the following descending order:
+Ace: 11 points
+Three: 10 points
+King: 4 points
+Horse: 3 points
+Jack: 2 points
+Seven, Six, Five, Four, Two: 0 points
+
+In each round there are 120 points (30 per suit). You must add up the 10 points from the last trick, which results in a total of 130 points per game. The rest of points will depend on whether any player sings or not. They can reach 100, which is the maximum. You can sing 3 times for 20 points and once for 40 points.
+
+
+End of the game
+The player who wins all rounds wins the match.
+
+
+"Sing"
+A call is when a player says what is in his hands the knight and king of the same suit. They are worth 40 points when they are in the same suit as the trump (sing at 40) and 20 points when they are in different suits than the trump (sing at 20 in diamonds, spades, clubs and hearts), and it is mandatory to sing at 40 in first place.
+
+The player can sing “Tute” if he has the 4 kings and the 4 knights and will win the game immediately. It is also only possible to sing once per trick won, and you cannot Tute if you sing first. You can only sing as long as there is a pile and as long as neither the knight nor the king is the last card you draw.

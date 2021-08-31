@@ -1,0 +1,40 @@
+Sobre o Tute
+O Tute é um jogo de cartas de 2 a 4 jogadores e é um dos mais populares com o baralho espanhol. É de origem italiana e vem da palavra italiana tutti.
+
+
+Como jogar o Tute
+Ao princípio da partida, decide-se por sorteio automático o jogador mão, isto é, o que começa a jogar. Serão distribuídas 8 cartas para cada jogador. Após a distribuição, a última carta é a que marcará o trunfo ou o vira. As 24 cartas que sobraram serão deixadas na mesa para serem compradas.
+
+
+Desenvolvimento da partida
+Começa o jogador que é o mão descartando qualquer uma das suas cartas. O adversário deve jogar uma das suas cartas em função da primeira. O grupo de cartas jogadas por ambos é chamado de vaza. O seguinte jogador está obrigado a descartar seguindo as seguintes regras:
+
+1. Uma carta do mesmo naipe superior a carta em cima da mesa.
+2. Uma carta do mesmo naipe.
+3. Uma carta do naipe de trunfo superior a carta em cima da mesa.
+4. Qualquer outra carta.
+
+Ganha a vaza o jogador que colocar o trunfo de valor mais alto ou se não houver trunfos a carta do naipe de início (a primeira que é descartada) de valor mais alto. Este jogador recolhe a vaza, isto significa que recolhe as cartas descartadas por ambos jogadores nessa mão, e as guarda até o final da rodada. O jogador que ganhar a vaza começará jogando na seguinte mão. 
+
+Quando o trunfo é um ás, um três, um rei, um cavalo ou um valete, o jogador que tiver o 7 do mesmo naipe poderá trocá-lo pelo vira. Esta operação também pode ser feita, da mesma maneira, para trocar o 7, 6, 5 ou 4 do vira pelo 2, não podendo ser feita até que se ganhe uma vaza.
+
+
+Valor das cartas
+O valor das cartas está na seguinte ordem decrescente:
+Ás: 11 pontos
+Três: 10 pontos
+Rei: 4 pontos
+Cavalo: 3 pontos
+Valete: 2 pontos
+Sete, Seis, Cinco, Quatro, Dois: 0 pontos
+
+Em cada rodada há 120 pontos (30 por naipe). Deve-se adicionar os 10 pontos da última vaza que resulta em um total de 130 pontos por partida. O resto de pontos dependerão de que se algum jogador cantar ou não. Podem alcançar 100, que é o máximo. Pode-se cantar 3 vezes de 20 pontos e uma vez de 40 pontos.
+
+Fim de jogo
+O jogador que ganha todas as rodadas, vence a partida.
+
+
+Cantes
+Um cante é quando um jogador diz o que tem nas mãos o cavalo e o rei do mesmo naipe. Valem 40 pontos quando são do mesmo naipe do trunfo (cante às 40) e 20 pontos quando são de naipes diferentes do trunfo (cante às 20 em ouros, espadas, paus e copas), sendo que é obrigatório cantar às 40 em primeiro lugar. 
+
+O jogador poderá cantar “Tute” se tiver os 4 reis e os 4 cavalos e ganhará o jogo imediatamente. Também só é possível cantar uma vez por vaza ganhada, sendo que você não pode fazer Tute se cantar antes. Somente pode-se cantar enquanto houver monte e sempre que, nem o cavalo nem o rei, forem a última carta que você comprar.
