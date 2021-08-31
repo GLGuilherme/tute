@@ -127,8 +127,8 @@ public class TranslatorEn extends Translator
 
     @Override
     public String getRulesText() throws IOException {
-        Path fileName = Paths.get("iams/cardgame/tute/tr/Rules.txt");
+        Path fileName = Paths.get("/Users/gabriel/GitHub/tute/src/iams/cardgame/tute/tr/Rules.txt");
 
-        return Files.readString(fileName.toAbsolutePath(), StandardCharsets.UTF_8);
+        return Files.readString(fileName, StandardCharsets.UTF_8);
     }
 }

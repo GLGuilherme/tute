@@ -5,13 +5,9 @@ import java.awt.*;
 import java.awt.event.*;
 import java.awt.geom.AffineTransform;
 import java.awt.geom.Rectangle2D;
-import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.IOException;
-import java.net.URL;
 import java.util.Arrays;
 
-import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.JFrame;
 import static javax.swing.ScrollPaneConstants.*;
@@ -20,7 +16,6 @@ import static javax.swing.ScrollPaneConstants.*;
 import iams.cardgame.tute.tr.Translator;
 import iams.ui.GraphicsPanel;
 
-@SuppressWarnings("serial")
 public class Main extends GraphicsPanel
 {
     Languages lg = new Languages();
@@ -145,17 +140,16 @@ public class Main extends GraphicsPanel
 
     static public void main(String[] args) throws IOException
     {
-        Languages lg = new Languages();
+        final Languages lg = new Languages();
         final Translator tr = Translator.get(lg.getDefaultLanguage());
 
-        ImageIcon appIcon = new ImageIcon("iams/cardgame/iconhq.png");
-
-        Taskbar.getTaskbar().setIconImage(appIcon.getImage());
+        ImageIcon appIcon = new ImageIcon("/Users/gabriel/GitHub/tute/src/iams/cardgame/iconhq.png");
 
         JFrame frame = new JFrame(tr.getWindowTitle());
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
         frame.add(new Main());
+        frame.setLocationByPlatform(true);
         frame.setVisible(true);
 
         JMenuBar menuBar = new JMenuBar();
@@ -183,58 +177,42 @@ public class Main extends GraphicsPanel
         languages.add(portuguese);
         languages.add(spanish);
 
-        rules.addActionListener(new ActionListener(){
-            public void actionPerformed(ActionEvent e){
-                JFrame rulesFrame = new JFrame(tr.getWindowTitle());
-                rulesFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                rulesFrame.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        rules.addActionListener(e -> {
+            JFrame rulesFrame = new JFrame(tr.getWindowTitle());
+            rulesFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            rulesFrame.setExtendedState(JFrame.MAXIMIZED_BOTH);
 
-                JTextArea textArea = new JTextArea(40, 100);
-                try {
-                    textArea.setText(tr.getRulesText());
+            JTextArea textArea = new JTextArea(40, 100);
+            try {
+                textArea.setText(tr.getRulesText());
 
-                } catch (IOException ex) {
-                    ex.printStackTrace();
-                }
-                textArea.setEditable(false);
-                JScrollPane scrollPane = new JScrollPane(textArea);
-                scrollPane.setHorizontalScrollBarPolicy(HORIZONTAL_SCROLLBAR_NEVER);
-                textArea.setLineWrap(true);
-                JOptionPane.showMessageDialog(rulesFrame, scrollPane, tr.getMenuItemNames("RULES"), JOptionPane.INFORMATION_MESSAGE, appIcon);
+            } catch (IOException ex) {
+                ex.printStackTrace();
             }
+            textArea.setEditable(false);
+            JScrollPane scrollPane = new JScrollPane(textArea);
+            scrollPane.setHorizontalScrollBarPolicy(HORIZONTAL_SCROLLBAR_NEVER);
+            textArea.setLineWrap(true);
+            JOptionPane.showMessageDialog(rulesFrame, scrollPane, tr.getMenuItemNames("RULES"), JOptionPane.INFORMATION_MESSAGE, appIcon);
         });
 
-        restart.addActionListener(new ActionListener(){
-            public void actionPerformed(ActionEvent e){
-             restartGame(frame);
-            }
+        restart.addActionListener(e -> restartGame(frame));
+
+        exit.addActionListener(e -> frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING)));
+
+        english.addActionListener(e -> {
+            lg.setDefaultLanguage("EN");
+            restartGame(frame);
         });
 
-        exit.addActionListener(new ActionListener(){
-            public void actionPerformed(ActionEvent e){
-                frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
-            }
+        portuguese.addActionListener(e -> {
+            lg.setDefaultLanguage("PT");
+            restartGame(frame);
         });
 
-        english.addActionListener(new ActionListener(){
-            public void actionPerformed(ActionEvent e){
-                lg.setDefaultLanguage("EN");
-                restartGame(frame);
-            }
-        });
-
-        portuguese.addActionListener(new ActionListener(){
-            public void actionPerformed(ActionEvent e){
-                lg.setDefaultLanguage("PT");
-                restartGame(frame);
-            }
-        });
-
-        spanish.addActionListener(new ActionListener(){
-            public void actionPerformed(ActionEvent e){
-                lg.setDefaultLanguage("SP");
-                restartGame(frame);
-            }
+        spanish.addActionListener(e -> {
+            lg.setDefaultLanguage("SP");
+            restartGame(frame);
         });
 
         frame.setJMenuBar(menuBar);

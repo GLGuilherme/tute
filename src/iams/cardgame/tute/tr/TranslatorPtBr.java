@@ -4,9 +4,6 @@ import iams.cardgame.tute.CardModel;
 import iams.cardgame.tute.CardModel.Rank;
 import iams.cardgame.tute.CardModel.Suit;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -130,8 +127,8 @@ public class TranslatorPtBr extends Translator
 
     @Override
     public String getRulesText() throws IOException {
-        Path fileName = Paths.get("iams/cardgame/tute/tr/Regras.txt");
+        Path fileName = Paths.get("/Users/gabriel/GitHub/tute/src/iams/cardgame/tute/tr/Regras.txt");
 
-        return Files.readString(fileName.toAbsolutePath(), StandardCharsets.UTF_8);
+        return Files.readString(fileName, StandardCharsets.UTF_8);
     }
 }
